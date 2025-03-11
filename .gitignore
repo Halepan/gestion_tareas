@@ -1,0 +1,5 @@
+#ignorar estos archivos 
+codigos_de_django.txt
+prueba.py
+config_DB.py
+.pyc
