@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from gestion_tareas.config_DB import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,8 +78,11 @@ WSGI_APPLICATION = 'gestion_tareas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'gestion_tareas'
-    }|config
+        'NAME':'gestion_tareas','USER':'postgres',
+        'PASSWORD':'12345678',
+        'HOST':'Localhost',
+        'DATABASE_PORT':'5432'
+    }
 }
 
 

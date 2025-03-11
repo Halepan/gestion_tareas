@@ -1,5 +1,5 @@
 #ignorar estos archivos 
 prueba.py
-config_DB.py
+
 .pyc
 codigos_de_django .txt
