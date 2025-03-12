@@ -12,14 +12,12 @@ def inicio(request):
     if request.POST:
         formulario = Inicio_Sesion(request.POST)
         if formulario.is_valid():
-            if User.objects.filter(username="halepania"):
-
-                return HttpResponse(f"""existen {User.objects.filter(username = formulario.cleaned_data['username']).count()} 
-                                coincidencias""")
-            else: return HttpResponse(f"""existen 0 coincidencias""")
-        else:
-            HttpResponse("formulario invalido")
-
+            usuario = authenticate(request,formulario.cleaned_data["username"],
+                                   formulario.cleaned_data["password"])
+            if usuario:
+                return HttpResponse("valido")
+            else: return HttpResponse("o el usuario es incorrecto o la contraseña no es valida")
+            
 
     return render(request,"inicio.html",{'formulario_django':Inicio_Sesion()})
 
