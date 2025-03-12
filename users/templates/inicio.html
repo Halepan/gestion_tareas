@@ -8,9 +8,9 @@
   <body>
     <section>
       <div>
-        <form method="post">
-          {% csrf_token %} {{formulario_django.as_p}}
-          <input type="submit" value="Iniciar Sesion" />
+        <form method="post" action="{% url 'inicio' %}">
+          {% csrf_token %} {{ formulario_django.as_p }}
+          <button type="submit">Iniciar Sesión</button>
         </form>
       </div>
       <div>

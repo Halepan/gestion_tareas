@@ -1,5 +1,4 @@
 #ignorar estos archivos 
-prueba.py
-
 .pyc
+prueba.py
 codigos_de_django .txt
