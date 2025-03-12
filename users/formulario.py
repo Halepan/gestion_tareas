@@ -30,7 +30,7 @@ class New_Cuenta(forms.ModelForm):
     
     def save(self,commit=True):
         user= super().save(commit=False)
-        user.set_password(self.changed_data["password"])
+        user.set_password(self.cleaned_data["password"])
         if user:
             user.save()
         return user

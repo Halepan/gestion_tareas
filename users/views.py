@@ -12,8 +12,8 @@ def inicio(request):
     if request.POST:
         formulario = Inicio_Sesion(request.POST)
         if formulario.is_valid():
-            usuario = authenticate(request,formulario.cleaned_data["username"],
-                                   formulario.cleaned_data["password"])
+            usuario = authenticate(request,username=formulario.cleaned_data["username"],
+                                   password=formulario.cleaned_data["password"])
             if usuario:
                 return HttpResponse("valido")
             else: return HttpResponse("o el usuario es incorrecto o la contraseña no es valida")
@@ -27,12 +27,8 @@ def registrarse(request):
     if request.POST:
         formulario = New_Cuenta(request.POST)
         if formulario.is_valid():
-                    
-            if not User.objects.filter(username= formulario.cleaned_data['username']):
-                user = User(username= formulario.cleaned_data['username'],
-                         password = formulario.cleaned_data['password'])
-                user.save()
-                return redirect('inicio')
+            formulario.save()
+            return redirect('inicio')
 
     return render(request,"registro.html",{'formulario_django':New_Cuenta()})
 
