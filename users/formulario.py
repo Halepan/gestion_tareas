@@ -27,6 +27,9 @@ class New_Cuenta(forms.ModelForm):
 
         return cleaned_data
     
-    def
-
-
+    def save(self,commit=True):
+        user= super().save(commit=False)
+        user.set_password(self.changed_data["password"])
+        if user:
+            user.save()
+        return user
