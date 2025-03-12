@@ -4,20 +4,18 @@ from django.core.exceptions import ValidationError
 
 class Inicio_Sesion(forms.ModelForm):
     """formulario de inicio de sesion con respecto a el modielo usuario que viene con django"""
+    username = forms.CharField(widget=forms.TextInput,label="Nombre de usuario")
     password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
 
-    class Meta:
-        model = User
-        fields = ["username", "password"] 
 
-    
-class New_Cuenta(Inicio_Sesion):
+class New_Cuenta(forms.ModelForm):
     """formulario de registrarse con respecto a el modelo usuario que viene con django 
     hereda de Inicio Sesion para reutilizar el codigo creado por este"""
+    password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
     confirm_password = forms.CharField(widget=forms.PasswordInput, label="Confirmar Contraseña")
 
-    class Meta(Inicio_Sesion.Meta):  
-        fields = Inicio_Sesion.Meta.fields + ["confirm_password"]  
+    class Meta():
+        fields =  ["username", "password","confirm_password"]  
 
     def clean(self):
         cleaned_data = super().clean()
@@ -28,5 +26,7 @@ class New_Cuenta(Inicio_Sesion):
             raise ValidationError("Las contraseñas no coinciden")
 
         return cleaned_data
+    
+    def
 
 
