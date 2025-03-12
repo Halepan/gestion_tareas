@@ -15,7 +15,8 @@ def inicio(request):
             usuario = authenticate(request,username=formulario.cleaned_data["username"],
                                    password=formulario.cleaned_data["password"])
             if usuario:
-                return HttpResponse("valido")
+                login(request,usuario)
+                return redirect('')
             else: return HttpResponse("o el usuario es incorrecto o la contraseña no es valida")
             
 
@@ -32,6 +33,9 @@ def registrarse(request):
 
     return render(request,"registro.html",{'formulario_django':New_Cuenta()})
 
+@login
+def tarea(reques):
+    pass
 
     
  

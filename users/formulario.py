@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from users.models import Tareas
 from django.core.exceptions import ValidationError
 
 class Inicio_Sesion(forms.Form):
@@ -34,3 +35,10 @@ class New_Cuenta(forms.ModelForm):
         if user:
             user.save()
         return user
+
+class New_Tarea(forms.ModelForm):
+    descripcion = forms.CharField(widget=forms.Textarea,label="Descripción")
+    class Meta():
+        model = Tareas
+        field = ["nombre","descripcion"]
+        
