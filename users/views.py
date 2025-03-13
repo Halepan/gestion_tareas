@@ -25,6 +25,7 @@ def inicio(request):
 
     return render(request,"inicio.html",{'formulario_django':formulario})
 
+
 def registrarse(request):
     """Esta vista se encarga de verificar la validez del registro para almacenar un nuevo usuario en la 
     DATABASE , verifica que no se creen usuarios con otro  username de usuario ya guardado"""
@@ -42,11 +43,11 @@ def registrarse(request):
 @login_required
 def tarea(request):
 
-    nombre = request.user.user_id
+    usuario = request.user.user_id
     tareas = Tareas.objects.filter(user)
+    form = Tareas()
 
-
-    return render(request,"tareas.html",)
+    return render(request,"tareas.html",{'tarea_all':tareas,'formulario_tarea':form})
 
     
  

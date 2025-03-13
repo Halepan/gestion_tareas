@@ -17,8 +17,8 @@ class New_Cuenta(forms.ModelForm):
 
     class Meta():
         model = User
-        fields =  ["username", "password","confirm_password"] 
-         
+        fields =  ["username", "password","confirm_password"]
+        fields["username"].help_text =""
 
     def clean(self):
         cleaned_data = super().clean()
