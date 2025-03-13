@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from users.formulario import Inicio_Sesion,New_Cuenta
 from django.http import HttpResponse
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
-
+from django.contrib.auth.decorators import login_required
+from users.models import Tareas
 
 
 def inicio(request):
@@ -16,11 +16,14 @@ def inicio(request):
                                    password=formulario.cleaned_data["password"])
             if usuario:
                 login(request,usuario)
-                return redirect('')
-            else: return HttpResponse("o el usuario es incorrecto o la contraseña no es valida")
-            
+                return tarea(request)
+            else:
+                formulario.add_error(None,"cerifica tu identidad, el usuario y la contraseña\
+                                      no coinciden con nuestra base datos")
+ 
+    else:formulario = Inicio_Sesion()     
 
-    return render(request,"inicio.html",{'formulario_django':Inicio_Sesion()})
+    return render(request,"inicio.html",{'formulario_django':formulario})
 
 def registrarse(request):
     """Esta vista se encarga de verificar la validez del registro para almacenar un nuevo usuario en la 
@@ -28,14 +31,22 @@ def registrarse(request):
     if request.POST:
         formulario = New_Cuenta(request.POST)
         if formulario.is_valid():
-            formulario.save()
-            return redirect('inicio')
+            if formulario.save():
+                return redirect('inicio')
+            else:formulario.add_error(None,"No se puso registrar el usuario cambie su nombre")
+    else:
+        formulario= New_Cuenta()
 
-    return render(request,"registro.html",{'formulario_django':New_Cuenta()})
+    return render(request,"registro.html",{'formulario_django':formulario})
 
-@login
-def tarea(reques):
-    pass
+@login_required
+def tarea(request):
+
+    nombre = request.user.user_id
+    tareas = Tareas.objects.filter(user)
+
+
+    return render(request,"tareas.html",)
 
     
  

@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Iniciar Sesion/', views.inicio,name="inicio"),
     path('Registrarse/',views.registrarse,name="registrarse"),
-    path('Tareas/',views.tarea,name="Tabla tarea")
+    path('Tareas/',views.tarea,name="tarea")
 ]

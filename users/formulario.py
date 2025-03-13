@@ -17,7 +17,8 @@ class New_Cuenta(forms.ModelForm):
 
     class Meta():
         model = User
-        fields =  ["username", "password","confirm_password"]  
+        fields =  ["username", "password","confirm_password"] 
+         
 
     def clean(self):
         cleaned_data = super().clean()
@@ -34,11 +35,13 @@ class New_Cuenta(forms.ModelForm):
         user.set_password(self.cleaned_data["password"])
         if user:
             user.save()
-        return user
+            return user
+        return None
 
-class New_Tarea(forms.ModelForm):
-    descripcion = forms.CharField(widget=forms.Textarea,label="Descripción")
-    class Meta():
-        model = Tareas
-        field = ["nombre","descripcion"]
+class New_Tarea(forms.Form):
+    """formulario para agregar una nueva tarea"""
+    nombre = forms.CharField(widget= forms.TextInput,label= "Nombre de la tarea")
+    descripcion = forms.CharField(widget=forms.Textarea,label="Descripción",max_length=9999)
+
+
         

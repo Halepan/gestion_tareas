@@ -4,7 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tareas</title>
-    <link rel="stylesheet" href="style-tareas.css">
+    <link rel="stylesheet" href="style-tareas.css" />
   </head>
-  <body></body>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>DESCRIPCION</th>
+          <th>ESTADO</th>
+        </tr>
+      </thead>
+      <!-- un bucle que improme las tareas por filas-->
+      {%for tarea in tarea_all%}
+      <tr>
+        <th>{%tarea.name}</th>
+        <th>{%tarea.descripcion}</th>
+        <th><input type="checkbox" name="estado" id="fila" /></th>
+      </tr>
+      {%endfor%}
+    </table>
+    <div>
+      <label for="Agregar nueva tarea"></label>
+      <input type="checkbox" name="checkbox_agregar_tarea" id="agg" />
+    </div>
+    <div>
+      <form action="" method="post">
+        {%csrf_token%}
+        <p>hola</p>
+      </form>
+    </div>
+  </body>
 </html>
