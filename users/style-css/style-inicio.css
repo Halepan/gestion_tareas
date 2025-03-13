@@ -1,3 +1,43 @@
 body{
-    background-color: blue;
+    background-image: url(img/warrior.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div{
+    font-size: 2rem;
+    text-align: center;
+}
+
+button{
+    padding: 5px;
+    transition: box-shadow 3s ease;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+div form{
+    color: azure;
+    text-shadow: 3px 5px 5px red;
+    
+}
+div button{
+    background-color: darkorange;
+}
+
+div form button{
+    background-color: darkgoldenrod;
+}
+
+a:link{
+    color: brown;
+}
+
+a:visited{
+    color: yellow;
+}
+
+a:hover{
+    color: darkgrey;
 }
