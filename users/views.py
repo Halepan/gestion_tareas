@@ -45,7 +45,12 @@ def tarea(request):
 
     usuario = request.user
     tareas = Tareas.objects.filter(users= usuario)
+    return render(request,"tareas.html",{'tarea_all':tareas})
+
+@login_required
+def nueva_tarea(request):
     if request.POST:
+        usuario = request.user
         form = New_Tarea(request.Post)
         if form.is_valid():
             try:
@@ -55,12 +60,7 @@ def tarea(request):
                 form.add_error("nombre", e.message)
     else:
         form = New_Tarea()
-
-    return render(request,"tareas.html",{'tarea_all':tareas,'formulario_tarea':form})
-
-@login_required
-def nueva_tarea(request):
-    pass
+    return render(request,"nueva_tarea.html",{'formulario_tarea':form})
  
 @login_required
 def delete_tarea(request):
