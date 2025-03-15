@@ -42,5 +42,13 @@ class New_Tarea(forms.Form):
     nombre = forms.CharField(widget= forms.TextInput,label= "Nombre de la tarea")
     descripcion = forms.CharField(widget=forms.Textarea,label="Descripción",max_length=9999)
 
-
-        
+    def save(self,usuario):
+        nombre = self.cleaned_data["nombre"]
+        descripcion = self.cleaned_data["descripcion"]
+        if Tareas.objects.filter(users = usuario, nombre = nombre).exists():
+            raise ValidationError("Ya existe una tarea con este nombre")
+        else:
+            tarea = Tareas(users = usuario,nombre = nombre,
+                    estado = False,descripcion =descripcion)
+        tarea.save()
+        return tarea

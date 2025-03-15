@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from users.formulario import Inicio_Sesion,New_Cuenta,New_Tarea
-from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from users.models import Tareas
+
 
 
 def inicio(request):
@@ -45,7 +46,16 @@ def tarea(request):
 
     usuario = request.user
     tareas = Tareas.objects.filter(users= usuario)
-    form = New_Tarea()
+    if request.POST:
+        form = New_Tarea(request.Post)
+        if form.is_valid():
+            try:
+                form.save(usuario=usuario)  # Guardar la tarea para el usuario actual
+                return redirect("tarea")  # Redirigir para evitar reenvío del formulario
+            except ValidationError as e:
+                form.add_error("nombre", e.message)
+    else:
+        form = New_Tarea()
 
     return render(request,"tareas.html",{'tarea_all':tareas,'formulario_tarea':form})
 
