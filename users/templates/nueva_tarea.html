@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>nueva tarea</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <form action="" method="post">
+        {%csrf_token%}
+        <div>
+          <label for="formulario_tarea.nombre"> Nombre de la tarea: </label
+          >{{formulario_tarea.nombre}}
+        </div>
+        <div>
+          <label for="formulario_tarea.descripcion"> Descripcion: </label
+          >{{formulario_tarea.descripcion}}
+        </div>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </body>
+</html>
