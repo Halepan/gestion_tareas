@@ -30,8 +30,16 @@
     </div>
     <div>
       <form action="" method="post">
-        {%csrf_token%}{{formulario_tarea}}
-        <p>hola</p>
+        {%csrf_token%}
+        <div>
+          <label for="formulario_tarea.nombre"> Nombre de la tarea: </label
+          >{{formulario_tarea.nombre}}
+        </div>
+        <div>
+          <label for="formulario_tarea.descripcion"> Descripcion: </label
+          >{{formulario_tarea.descripcion}}
+        </div>
+        <button type="submit">Guardar</button>
       </form>
     </div>
   </body>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from users.formulario import Inicio_Sesion,New_Cuenta
+from users.formulario import Inicio_Sesion,New_Cuenta,New_Tarea
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
@@ -43,9 +43,9 @@ def registrarse(request):
 @login_required
 def tarea(request):
 
-    usuario = request.user.user_id
-    tareas = Tareas.objects.filter(user)
-    form = Tareas()
+    usuario = request.user
+    tareas = Tareas.objects.filter(users= usuario)
+    form = New_Tarea()
 
     return render(request,"tareas.html",{'tarea_all':tareas,'formulario_tarea':form})
 
