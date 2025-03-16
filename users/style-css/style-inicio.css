@@ -1,8 +1,10 @@
-body{
+html{
     background-image: url(img/warrior.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
 }
 
 div{
@@ -28,16 +30,4 @@ div button{
 
 div form button{
     background-color: darkgoldenrod;
-}
-
-a:link{
-    color: brown;
-}
-
-a:visited{
-    color: yellow;
-}
-
-a:hover{
-    color: darkgrey;
 }

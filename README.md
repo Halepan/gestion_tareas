@@ -4,8 +4,6 @@ las plantillas html estan en templates dentro de users
 el plantillas css van dentro style-css que esta dentro de users
 ejecutar el servidor
 python manage.py runserver
-ejecutar el servidor
-python manage.py runserver
 
 lo que debes hacer para ocultarlo es buscar el id del checkbox luego verificas si con :checked y entonces le pones ~ para escrbir el otro id y entonces le cambias el display como tu sabes hacerlo:
 el contenido seria
