@@ -15,7 +15,9 @@
         </form>
       </div>
       <div>
-        <button><a href="{% url 'registrarse' %}">Registrarse</a></button>
+        <form action="{% url 'registrarse' %}">
+          <button type="submit">Registrarse</button>
+        </form>
       </div>
     </section>
   </body>
