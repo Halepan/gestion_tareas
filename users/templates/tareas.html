@@ -18,13 +18,33 @@
       <!-- un bucle que improme las tareas por filas-->
       {%for tarea in tarea_all%}
       <tr>
-        <th>{%tarea.name}</th>
-        <th>{%tarea.descripcion}</th>
-        <th><input type="checkbox" name="estado" id="fila" /></th>
+        <td>{{tarea.nombre}}</td>
+        <td>{{tarea.descripcion}}</td>
+        <td>{% if tarea.estado %}Completada{%else%}Pendiente{% endif %}</td>
+        <td>
+          <form method="post" action="{% url 'tarea' %}">
+            {% csrf_token %}
+            <input type="hidden" name="tarea_id" value="{{ tarea.id }}" />
+            <button type="submit">
+              {% if tarea.estado %}Descompletar{% else %}Completar{% endif %}
+            </button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="{% url 'delete_tarea' %}">
+            {% csrf_token %}
+            <input type="hidden" name="tarea_id" value="{{ tarea.id }}" />
+            <button type="submit">Eliminar</button>
+          </form>
+        </td>
       </tr>
       {%endfor%}
     </table>
-    <div><a href="{% url 'nueva_tarea'%}">Agregar nueva tarea</a></div>
-    <div><a href="{% url 'delete_tarea'%}">Eliminar tarea</a></div>
+    <div>
+      <form action="{%url 'nueva_tarea'%}">
+        <button type="submit">Agregar tarea</button>
+      </form>
+    </div>
+    <div></div>
   </body>
 </html>
