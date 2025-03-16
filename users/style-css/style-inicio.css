@@ -45,10 +45,10 @@ div form{
 section{
     position: relative;
     border-style: solid;
-    border-radius: 200px;
+    border-radius: 50px;
     box-shadow: 3px 5px 5px black;
-    height: 13cm;
+    height: 10cm;
     width: 12cm;
-    padding-top: 3cm;
+    padding-top: 1cm;
     margin-left: 35%;
 }
