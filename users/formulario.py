@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from users.models import Tareas
 from django.core.exceptions import ValidationError
 
 class Inicio_Sesion(forms.Form):
@@ -16,7 +17,7 @@ class New_Cuenta(forms.ModelForm):
 
     class Meta():
         model = User
-        fields =  ["username", "password","confirm_password"]  
+        fields =  ["username", "password","confirm_password"]
 
     def clean(self):
         cleaned_data = super().clean()
@@ -33,4 +34,21 @@ class New_Cuenta(forms.ModelForm):
         user.set_password(self.cleaned_data["password"])
         if user:
             user.save()
-        return user
+            return user
+        return None
+
+class New_Tarea(forms.Form):
+    """formulario para agregar una nueva tarea"""
+    nombre = forms.CharField(widget= forms.TextInput,label= "Nombre de la tarea")
+    descripcion = forms.CharField(widget=forms.Textarea,label="Descripción",max_length=9999)
+
+    def save(self,usuario):
+        nombre = self.cleaned_data["nombre"]
+        descripcion = self.cleaned_data["descripcion"]
+        if Tareas.objects.filter(users = usuario, nombre = nombre).exists():
+            raise ValidationError("Ya existe una tarea con este nombre")
+        else:
+            tarea = Tareas(users = usuario,nombre = nombre,
+                    estado = False,descripcion =descripcion)
+        tarea.save()
+        return tarea
