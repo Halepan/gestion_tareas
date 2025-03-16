@@ -1,4 +1,5 @@
 #ignorar estos archivos 
-.pyc
 prueba.py
 codigos_de_django .txt
+/users/__pycache__
+*.pyc

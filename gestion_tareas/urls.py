@@ -21,5 +21,8 @@ from users import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Iniciar Sesion/', views.inicio,name="inicio"),
-    path('Registrarse/',views.registrarse,name="registrarse")
+    path('Registrarse/',views.registrarse,name="registrarse"),
+    path('Tareas/',views.tarea,name="tarea"),
+    path('Nueva Tarea/',views.nueva_tarea,name= "nueva_tarea"),
+    path('Eliminar Tarea/',views.delete_tarea,name= "delete_tarea")
 ]

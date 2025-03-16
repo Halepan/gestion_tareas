@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <link rel="stylesheet" href="/static/style-inicio.css">
+    <link rel="stylesheet" href="/static/style-inicio.css" />
   </head>
   <body>
     <section>
@@ -15,7 +15,9 @@
         </form>
       </div>
       <div>
-        <button><a href="{% url 'registrarse' %}">Registrarse</a></button>
+        <form action="{% url 'registrarse' %}">
+          <button type="submit">Registrarse</button>
+        </form>
       </div>
     </section>
   </body>
