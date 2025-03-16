@@ -12,11 +12,11 @@
       <div>
         <form method="post" action="{% url 'inicio' %}">
           {% csrf_token %} {{ formulario_django.as_p }}
-          <button type="submit">Iniciar Sesión</button>
+          <button id="inicio" type="submit">Iniciar Sesión</button>
         </form>
       </div>
       <div>
-        <form action="{% url 'registrarse' %}">
+        <form id="registrarse" action="{% url 'registrarse' %}">
           <button type="submit">Registrarse</button>
         </form>
       </div>
