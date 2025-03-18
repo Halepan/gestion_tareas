@@ -4,9 +4,14 @@ html{
 
 table{
     margin: 0 auto;
-    border: transparent;
+    border: 2px solid transparent;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 3px 5px 5px black;
     border-radius: 15px;
+}   
+
+table:hover {
+    box-shadow: 0 0 15px transparent;
 }
 
 table thead tr{
@@ -52,7 +57,6 @@ button{
 
 button:hover{
     transform: translateX(1px);
-    text-shadow: 5px 5px 5px yellow;
     box-shadow: 1px 1px black;
 }
 
@@ -73,6 +77,10 @@ div form button:hover{
     box-shadow: 10px 10px 10px black;
 }
 
-.completar{
-    
+.completar:hover{
+    text-shadow: 5px 5px 5px rgb(47, 255, 0);
+}
+
+.eliminar:hover{
+    text-shadow: 5px 5px 5px red;
 }
