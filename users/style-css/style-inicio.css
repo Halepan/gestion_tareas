@@ -11,7 +11,7 @@ h1{
     text-decoration-style: wavy;
     text-decoration-color: rgb(102, 75, 1);
     text-shadow: 3px 5px 5px rgb(255, 208, 0);
-    font-family: Tahoma;
+    font-family:'Franklin Gothic Medium';
     
 }
 
@@ -38,6 +38,7 @@ button:hover{
 }
 
 div form{
+    font-family: 'Gill Sans';
     color: rgb(255, 149, 0);
     text-shadow: 3px 5px 5px red;
 }
