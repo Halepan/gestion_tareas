@@ -1,0 +1,46 @@
+html{
+    min-height: 100vh;
+    margin: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, #b3740080, transparent 40%),
+        radial-gradient(circle at 80% 80%, #ff9101d8, transparent 40%),
+        #3b2002d8;
+    backdrop-filter: blur(15px);
+}
+
+body{
+    text-align: center;
+    margin-top: 4cm;
+    
+    
+}
+
+.nombre{
+    margin-bottom: 2cm;
+    font-size: 30px;
+    text-shadow: 10px 4px 15px rgba(255, 204, 0, 0.986);
+    font-family:'Franklin Gothic Medium';
+}
+
+.descripcion{
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 70px;
+    font-size: 20px;
+    text-shadow: 10px 4px 15px black;
+    color: rgba(255, 204, 0, 0.986);
+}
+
+button{
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 10px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+button:hover{
+    transform:rotateZ(25deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}

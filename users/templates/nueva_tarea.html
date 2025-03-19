@@ -4,17 +4,17 @@
     <title>nueva tarea</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/static/style-nueva_tarea.css" rel="stylesheet" />
   </head>
   <body>
     <div>
       <form method="post">
         {%csrf_token%}
-        <div>
+        <div class="nombre">
           <label for="formulario_tarea.nombre"> Nombre de la tarea: </label
           >{{formulario_tarea.nombre}}
         </div>
-        <div>
+        <div class="descripcion">
           <label for="formulario_tarea.descripcion"> Descripcion: </label
           >{{formulario_tarea.descripcion}}
         </div>
