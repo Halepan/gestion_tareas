@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/static/style-inicio.css" />
+  </head>
+  <body>
+    <h1>Iniciar Sesion</h1>
+    <section>
+      <div>
+        <form method="post" action="{% url 'inicio' %}">
+          {% csrf_token %} {{ formulario_django.as_p }}
+          <button id="inicio" type="submit">Iniciar Sesión</button>
+        </form>
+      </div>
+      <div>
+        <form id="registrarse" action="{% url 'registrarse' %}">
+          <button type="submit">Registrarse</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
