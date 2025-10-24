@@ -1,5 +1,10 @@
 #ignorar estos archivos 
 prueba.py
 codigos_de_django .txt
-/users/__pycache__
+*/__pycache__
 *.pyc
+comandos.txt
+db.sqlite3
+
+*.cpython-313.pyc
+*/migrations/
