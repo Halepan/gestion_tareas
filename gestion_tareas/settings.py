@@ -77,14 +77,10 @@ WSGI_APPLICATION = 'gestion_tareas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'gestion_tareas','USER':'postgres',
-        'PASSWORD':'12345678',
-        'HOST':'Localhost',
-        'DATABASE_PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation
